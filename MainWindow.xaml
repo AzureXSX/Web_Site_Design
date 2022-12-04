@@ -1,0 +1,705 @@
+﻿<Window x:Class="Web_Site_Design.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Web_Site_Design"
+        xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="750" Width="1000"
+        Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style x:Key="MHover" TargetType="Label">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Red"></Setter>
+                    <Setter Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" TextDecorations="Underline"/>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="False">
+                    <Setter Property="Foreground" Value="#3792cb"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="MHover2" TargetType="Label">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Red"></Setter>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="False">
+                    <Setter Property="Foreground" Value="#07da63"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="MHover3" TargetType="Label">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Red"></Setter>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="False">
+                    <Setter Property="Foreground" Value="#3792cb"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="MHover5" TargetType="Label">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Red"></Setter>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="False">
+                    <Setter Property="Foreground" Value="White"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="MHover4" TargetType="Label">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Red"></Setter>
+                    <Setter Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" TextDecorations="Underline"/>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="False">
+                    <Setter Property="Foreground" Value="Black"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="textboxes" TargetType="TextBox">
+            <Style.Setters>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate>
+                            <Border CornerRadius="3,0,0,3" Background="White"/>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>
+        <Style TargetType="TextBox" x:Key="Textbox">
+            <Setter Property="Padding" Value="7"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Foreground" Value="#000"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="MinHeight" Value="20"/>
+            <Setter Property="MinWidth" Value="250"/>
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border x:Name="border"
+CornerRadius="0"
+BorderBrush="#000"
+BorderThickness="2"
+Background="#fff"
+>
+                            <ScrollViewer x:Name="PART_ContentHost"
+Focusable="false"
+HorizontalScrollBarVisibility="Hidden"
+VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="Red"/>
+                                <Setter Property="Foreground" Value="Red" />
+                                <Setter Property="FontWeight" Value="Bold" />
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="true">
+                                <Setter Property="Foreground" Value="Blue" />
+                                <Setter Property="BorderBrush" TargetName="border" Value="Blue"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="TextBox" x:Key="Textbox1">
+            <Setter Property="Padding" Value="7"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Foreground" Value="#000"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="MinHeight" Value="20"/>
+            <Setter Property="MinWidth" Value="250"/>
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border x:Name="border"
+CornerRadius="10"
+BorderBrush="#000"
+BorderThickness="2"
+Background="#fff"
+>
+                            <ScrollViewer x:Name="PART_ContentHost"
+Focusable="false"
+HorizontalScrollBarVisibility="Hidden"
+VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="Red"/>
+                                <Setter Property="Foreground" Value="Red" />
+
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="true">
+                                <Setter Property="Foreground" Value="Blue" />
+                                <Setter Property="BorderBrush" TargetName="border" Value="Blue"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="TextBox" x:Key="Textbox2">
+            <Setter Property="Foreground" Value="#000"/>
+            <Setter Property="FontWeight" Value="Thin" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border x:Name="border"
+CornerRadius="3,0,0,3"
+BorderBrush="#000"
+BorderThickness="0"
+Background="#fff"
+>
+                            <ScrollViewer x:Name="PART_ContentHost"
+Focusable="false"
+HorizontalScrollBarVisibility="Hidden"
+VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Canvas x:Name="TopCanvas" Width="1000" Height="80" Margin="1,0,-1,674" Background="Black">
+            <fa:ImageAwesome Icon="CartArrowDown" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Left" 
+                        Width="25" Height="25" Canvas.Left="940" Canvas.Top="28"/>
+            <fa:ImageAwesome Icon="User" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Left" 
+                        Width="25" Height="25" Canvas.Left="900" Canvas.Top="27"/>
+
+            <Line X1="40" X2="70" Y1="30" Y2="30" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" StrokeThickness="2"></Line>
+            <Line X1="40" X2="70" Y1="40" Y2="40" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" StrokeThickness="2"></Line>
+            <Line X1="40" X2="70" Y1="50" Y2="50" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" StrokeThickness="2"></Line>
+            <Image x:Name="ROZETKAIMG"  Height="50" Width="50" HorizontalAlignment="Left" Canvas.Left="88" VerticalAlignment="Center" Canvas.Top="12"></Image>
+            <Label x:Name="LanguageUA" Content="UA" Style="{StaticResource ResourceKey=MHover5}" FontSize="14"  Canvas.Left="854" Canvas.Top="25" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
+            <Label x:Name="LanguageEN" Content="EN" Style="{StaticResource ResourceKey=MHover5}" FontSize="14"  Canvas.Left="827" Canvas.Top="25" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
+            <Label Content="|" FontSize="20" Foreground="White" Canvas.Left="847" Canvas.Top="19" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
+            <TextBox x:Name="TextBox1" Style="{StaticResource ResourceKey=Textbox2}" Width="400" Height="30" FontSize="18" TextChanged="TextBox1_TextChanged" TextWrapping="NoWrap" Canvas.Left="348" Canvas.Top="25" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Label x:Name="Search" Height="30" Foreground="Black" FontWeight="Thin" Content="Search..." FontSize="18" Canvas.Left="346" Canvas.Top="21" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Label x:Name="rozetka" Height="40" Foreground="White" FontWeight="Bold" Content="ROZETKA" FontSize="24" Canvas.Left="136" Canvas.Top="17" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Button x:Name="CA" Content="Catalog" Height="28" Width="70" Canvas.Left="268" Canvas.Top="26" HorizontalAlignment="Left" VerticalAlignment="Center" >
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border x:Name="BorderButt" Background="#797979" CornerRadius="4">
+                            <Label Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="Catalog"></Label>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <fa:ImageAwesome Icon="ExternalLink" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Center" 
+                        Width="20" Height="20" Canvas.Left="271" Canvas.Top="30"/>
+            <Button Content="Find" Height="30" Width="70" Foreground="White"  BorderThickness="0" Canvas.Left="748" Canvas.Top="25" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border CornerRadius="0,3,3,0" Background="#07da63">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Find</TextBlock>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Canvas>
+        <Canvas x:Name="RightCanvas" Margin="294,100,30,414" Height="220" Width="660" Background="AliceBlue">
+            <Image x:Name="Banner" VerticalAlignment="Top" HorizontalAlignment="Left" Height="220" Margin="0,0,0,0" Width="660" Stretch="Fill">
+
+            </Image>
+            <Button Click="LButton_Click" x:Name="LButton" MouseEnter="Button_MouseEnter_1" Height="50" Width="20" Margin="1,85,0,0" Background="Transparent" BorderThickness="0">
+                <fa:ImageAwesome Icon="AngleLeft" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                        Width="20" Height="50"/>
+            </Button>
+            <Button Click="RButton_Click" x:Name="RButton" MouseEnter="Button_MouseEnter" Height="50" Width="20" Margin="640,85,0,0" Background="Transparent" BorderThickness="0">
+                <fa:ImageAwesome Icon="AngleRight" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                        Width="20" Height="50"/>
+            </Button>
+        </Canvas>
+
+        <Canvas x:Name="LeftCanvas" Width="150" Height="480" Margin="37,80,813,174">
+            <StackPanel Margin="-15,0,0,0">
+                <Label FontSize="20" x:Name="Laptops" Padding="20,20,0,0" Style="{StaticResource ResourceKey=MHover}" MouseLeftButtonUp="Laptops_MouseLeftButtonUp">Laptops</Label>
+                <Label FontSize="20" x:Name="SmartPhones" Padding="20,20,0,0" Style="{StaticResource ResourceKey=MHover}" MouseLeftButtonUp="SmartPhones_MouseLeftButtonUp">Smartphones</Label>
+                <Label FontSize="20" x:Name="ForGamers" Padding="20,20,0,0" Style="{StaticResource ResourceKey=MHover}" MouseLeftButtonUp="ForGamers_MouseLeftButtonUp">For Gamers</Label>
+                <Label FontSize="20" x:Name="Household" Padding="20,20,0,0" Style="{StaticResource ResourceKey=MHover}" MouseLeftButtonUp="Household_MouseLeftButtonUp">Household appliances</Label>
+                <Label FontSize="20" x:Name="Tools_and_auto_goods" Padding="20,20,0,0" Style="{StaticResource ResourceKey=MHover}" MouseLeftButtonUp="Tools_and_auto_goods_MouseLeftButtonUp">Tools and auto goods</Label>
+                <Label FontSize="20" x:Name="Plumbing_and_repair"  Padding="20,20,0,0" Style="{StaticResource ResourceKey=MHover}" MouseLeftButtonUp="Plumbing_and_repair_MouseLeftButtonUp">Plumbing and repair</Label>
+                <Label FontSize="20" x:Name="Sports_and_hobbies"  Padding="20,20,0,0" Style="{StaticResource ResourceKey=MHover}" MouseLeftButtonUp="Sports_and_hobbies_MouseLeftButtonUp">Sports and hobbies</Label>
+
+                <Line x:Name="Line1" X1="0" X2="230" Y1="30" Y2="30" Stroke="LightGray"/>
+                <Label FontSize="20" x:Name="Support"  Margin="20,0,0,0" Style="{StaticResource ResourceKey=MHover3}">Help center</Label>
+                <Line x:Name="Line2" X1="0" X2="230" Y1="3" Y2="3" Stroke="LightGray"/>
+                <Label FontSize="20" x:Name="Chat"  Margin="20,0,0,0" Style="{StaticResource ResourceKey=MHover2}">Chat with ROZETKA</Label>
+                <Line x:Name="Line3" X1="0" X2="230" Y1="3" Y2="3" Stroke="LightGray"/>
+                <Label FontSize="20" x:Name="Points"  Margin="20,0,0,0" Style="{StaticResource ResourceKey=MHover3}">Delivery points</Label>
+                <Line x:Name="Line4" X1="0" X2="230" Y1="3" Y2="3" Stroke="LightGray"/>
+                <Label FontSize="15" Margin="20,0,0,0" Foreground="LightGray">We are on social networks</Label>
+                <StackPanel Orientation="Horizontal">
+                    <fa:ImageAwesome Icon="FacebookOfficial" Foreground="#3972cb" VerticalAlignment="Center" HorizontalAlignment="Left" 
+                        Width="25" Height="25" Margin="10,5,0,0">
+                        
+                    </fa:ImageAwesome>
+                    <fa:ImageAwesome Icon="Twitter" Foreground="#45b6fe" VerticalAlignment="Center" HorizontalAlignment="Left" 
+                        Width="25" Height="25" Margin="20,5,0,0">
+                    </fa:ImageAwesome>
+                    <fa:ImageAwesome Icon="YoutubePlay" Foreground="Red" VerticalAlignment="Center" HorizontalAlignment="Left" 
+                        Width="25" Height="25" Margin="20,5,0,0">
+                    </fa:ImageAwesome>
+                    <fa:ImageAwesome Icon="Instagram" Foreground="Orange" VerticalAlignment="Center" HorizontalAlignment="Left" 
+                        Width="25" Height="25" Margin="20,5,0,0">
+                    </fa:ImageAwesome>
+                    <fa:ImageAwesome Icon="Telegram" Foreground="#45b6fe" VerticalAlignment="Center" HorizontalAlignment="Left" 
+                        Width="25" Height="25" Margin="20,5,0,0">
+                    </fa:ImageAwesome>
+                </StackPanel>
+                <Line x:Name="Line5" X1="0" X2="230" Y1="10" Y2="10" Stroke="LightGray"/>
+                
+            </StackPanel>
+
+        </Canvas>
+        <Canvas x:Name="LAPTOPS" Margin="294,360,40,414" Width="662" Height="350" d:IsHidden="True">
+            <ScrollViewer Width="663" Height="350">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" Height="100">
+                        <Image x:Name="l1" Height="100" Width="109" Margin="10,0,0,0"></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="l2" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="l3" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="l4" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="l5" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label x:Name="LaptopLabel1" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="LaptopLabel1_MouseLeftButtonUp" >gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="LaptopLabel2" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="LaptopLabel2_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="LaptopLabel3" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="LaptopLabel3_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="LaptopLabel4" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="LaptopLabel4_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="LaptopLabel5" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="LaptopLabel5_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                    </StackPanel>
+                    <Line X1="0" X2="662" Margin="0,0,0,30" StrokeThickness="3" Stroke="LightGray"></Line>
+                    <StackPanel Orientation="Horizontal" Height="100" Margin="0,10,0,0">
+                        <Image x:Name="l6" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="l7" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="l8" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="l9" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="l10" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" >
+                        <Label x:Name="LaptopLabel11" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="LaptopLabel11_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="LaptopLabel22" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="LaptopLabel22_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="LaptopLabel33" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="LaptopLabel33_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="LaptopLabel44" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="LaptopLabel44_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="LaptopLabel55" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="LaptopLabel55_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                    </StackPanel>
+                    <Line X1="0" X2="662" Margin="0,0,0,30" StrokeThickness="3" Stroke="LightGray"></Line>
+                    <StackPanel Orientation="Horizontal" Height="100" Margin="0,10,0,0">
+                        <Image x:Name="l11" Height="100" Width="109" Margin="10,0,0,0"></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="l12" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="l13" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="l14" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="l15" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" >
+                        <Label x:Name="LaptopLabel111" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="LaptopLabel111_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="LaptopLabel222" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="LaptopLabel222_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="LaptopLabel333" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="LaptopLabel333_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="LaptopLabel444" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="LaptopLabel444_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="LaptopLabel555" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="LaptopLabel555_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                    </StackPanel>
+                    <Line X1="0" X2="662" Margin="0,0,0,30" StrokeThickness="3" Stroke="LightGray"></Line>
+                    <StackPanel Orientation="Horizontal" Height="100" Margin="0,10,0,0">
+                        <Image x:Name="l16" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="l17" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="l18" Height="100" Width="109" Margin="10,0,0,0"></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="l19" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="l20" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" >
+                        <Label x:Name="LaptopLabel1111" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="LaptopLabel1111_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="LaptopLabel2222" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="LaptopLabel2222_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="LaptopLabel3333" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="LaptopLabel3333_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="LaptopLabel4444" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="LaptopLabel4444_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="LaptopLabel5555" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="LaptopLabel5555_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                    </StackPanel>
+                    <Line X1="0" X2="662" Margin="0,0,0,30" StrokeThickness="3" Stroke="LightGray"></Line>
+                </StackPanel>
+            </ScrollViewer>
+        </Canvas>
+        <Canvas x:Name="SMARTPHONES" Margin="294,360,40,414" Width="662" Height="350">
+            <ScrollViewer Width="663" Height="350">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" Height="100">
+                        <Image x:Name="p1" Height="100" Width="109" Margin="10,0,0,0"></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="p2" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="p3" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="p4" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="p5" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label x:Name="PhoneLabel1" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="PhoneLabel1_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="PhoneLabel2" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="PhoneLabel2_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="PhoneLabel3" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="PhoneLabel3_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="PhoneLabel4" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="PhoneLabel4_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="PhoneLabel5" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="PhoneLabel5_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                    </StackPanel>
+                    <Line X1="0" X2="662" Margin="0,0,0,30" StrokeThickness="3" Stroke="LightGray"></Line>
+                    <StackPanel Orientation="Horizontal" Height="100" Margin="0,10,0,0">
+                        <Image x:Name="p6" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="p7" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="p8" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="p9" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="p10" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" >
+                        <Label x:Name="PhoneLabel11" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="PhoneLabel11_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="PhoneLabel22" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="PhoneLabel22_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="PhoneLabel33" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="PhoneLabel33_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="PhoneLabel44" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="PhoneLabel44_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="PhoneLabel55" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="PhoneLabel55_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                    </StackPanel>
+                    <Line X1="0" X2="662" Margin="0,0,0,30" StrokeThickness="3" Stroke="LightGray"></Line>
+                    <StackPanel Orientation="Horizontal" Height="100" Margin="0,10,0,0">
+                        <Image x:Name="p11" Height="100" Width="109" Margin="10,0,0,0"></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="p12" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="p13" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="p14" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="p15" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" >
+                        <Label x:Name="PhoneLabel111" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="PhoneLabel111_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="PhoneLabel222" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="PhoneLabel222_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="PhoneLabel333" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="PhoneLabel333_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="PhoneLabel444" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="PhoneLabel444_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="PhoneLabel555" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="PhoneLabel555_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                    </StackPanel>
+                    <Line X1="0" X2="662" Margin="0,0,0,30" StrokeThickness="3" Stroke="LightGray"></Line>
+                    <StackPanel Orientation="Horizontal" Height="100" Margin="0,10,0,0">
+                        <Image x:Name="p16" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="p17" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="p18" Height="100" Width="109" Margin="10,0,0,0"></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="p19" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="p20" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" >
+                        <Label x:Name="PhoneLabel1111" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="PhoneLabel1111_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="PhoneLabel2222" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="PhoneLabel2222_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="PhoneLabel3333" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="PhoneLabel3333_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="PhoneLabel4444" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="PhoneLabel4444_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="PhoneLabel5555" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="PhoneLabel5555_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                    </StackPanel>
+                    <Line X1="0" X2="662" Margin="0,0,0,30" StrokeThickness="3" Stroke="LightGray"></Line>
+                </StackPanel>
+            </ScrollViewer>
+        </Canvas>
+        <Canvas x:Name="FOR_GAMERS" Margin="294,360,40,414" Width="662" Height="350">
+            <ScrollViewer Width="663" Height="350">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" Height="100">
+                        <Image x:Name="g1" Height="100" Width="109" Margin="10,0,0,0"></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="g2" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="g3" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="g4" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="g5" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label x:Name="GamerLabel1" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="GamerLabel1_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="GamerLabel2" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="GamerLabel2_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="GamerLabel3" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="GamerLabel3_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="GamerLabel4" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="GamerLabel4_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="GamerLabel5" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="GamerLabel5_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                    </StackPanel>
+                    <Line X1="0" X2="662" Margin="0,0,0,30" StrokeThickness="3" Stroke="LightGray"></Line>
+                    <StackPanel Orientation="Horizontal" Height="100" Margin="0,10,0,0">
+                        <Image x:Name="g6" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="g7" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="g8" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="g9" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="g10" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" >
+                        <Label x:Name="GamerLabel11" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="GamerLabel11_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="GamerLabel22" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="GamerLabel22_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="GamerLabel33" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="GamerLabel33_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="GamerLabel44" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="GamerLabel44_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="GamerLabel55" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="GamerLabel55_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                    </StackPanel>
+                    <Line X1="0" X2="662" Margin="0,0,0,30" StrokeThickness="3" Stroke="LightGray"></Line>
+                    <StackPanel Orientation="Horizontal" Height="100" Margin="0,10,0,0">
+                        <Image x:Name="g11" Height="100" Width="109" Margin="10,0,0,0"></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="g12" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="g13" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="g14" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="g15" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" >
+                        <Label x:Name="GamerLabel111" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="GamerLabel111_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="GamerLabel222" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="GamerLabel222_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="GamerLabel333" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="GamerLabel333_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="GamerLabel444" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="GamerLabel444_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="GamerLabel555" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="GamerLabel555_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                    </StackPanel>
+                    <Line X1="0" X2="662" Margin="0,0,0,30" StrokeThickness="3" Stroke="LightGray"></Line>
+                    <StackPanel Orientation="Horizontal" Height="100" Margin="0,10,0,0">
+                        <Image x:Name="g16" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="g17" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="g18" Height="100" Width="109" Margin="10,0,0,0"></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="g19" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                        <Image x:Name="g20" Height="100" Width="109" Margin="10,0,0,0" ></Image>
+                        <Line X1="10" X2="10" Y1="0" Y2="100" Stroke="LightGray"></Line>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" >
+                        <Label x:Name="GamerLabel1111" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="GamerLabel1111_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="GamerLabel2222" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="GamerLabel2222_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="GamerLabel3333" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="GamerLabel3333_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="GamerLabel4444" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="GamerLabel4444_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                        <Label x:Name="GamerLabel5555" Width="109" Margin="10,0,0,0" Style="{StaticResource ResourceKey=MHover4}" HorizontalAlignment="Left" FontSize="13" HorizontalContentAlignment="Center" MouseLeftButtonUp="GamerLabel5555_MouseLeftButtonUp">gjrj</Label>
+                        <Line X1="10" X2="10" Y1="0" Y2="80" Stroke="LightGray"></Line>
+                    </StackPanel>
+                    <Line X1="0" X2="662" Margin="0,0,0,30" StrokeThickness="3" Stroke="LightGray"></Line>
+                </StackPanel>
+            </ScrollViewer>
+        </Canvas>
+        <Canvas x:Name="Cccanvas">
+            <Line X1="255" X2="255" Y1="80" Y2="750" Stroke="LightGray"></Line>
+            <Label x:Name="Title_label" FontSize="15" Content="Laptops" Canvas.Left="287" Canvas.Top="324" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        </Canvas>
+        <Canvas x:Name="Buy_Canvas" Height="650" Background="White" Margin="0,84,0,0" d:IsHidden="True">
+            <Label x:Name="Goods_name" FontSize="20" Width="600" Height="60" Margin="40,10,0,0">Name</Label>
+            <Image x:Name="Goods_image" Height="435" Width="420" Canvas.Left="20" Canvas.Top="80"/>
+            <Canvas Background="White" Height="380" Width="500" Margin="480,80,0,0">
+                <StackPanel Orientation="Vertical" Width="500">
+
+                    <StackPanel Orientation="Horizontal" Margin="0,40,0,0" Width="500">
+
+                        <Label Foreground="Red" Content="000000$" x:Name="Price" FontSize="25" Padding="10,0,0,0">
+                        </Label>
+                        <Button Content="Buy" Height="30" Width="70" Foreground="White"  BorderThickness="0" Margin="15,0,0,0">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border CornerRadius="3,3,3,3" Background="#07da63">
+                                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Buy</TextBlock>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button Content="Buy" Height="30" Width="90" Foreground="White"  BorderThickness="0" Margin="15,0,0,0">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border CornerRadius="3,3,3,3" Background="#3972cb">
+                                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Buy in credit</TextBlock>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <fa:ImageAwesome Icon="BalanceScale" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Left" 
+                        Width="30" Height="30" Margin="15,0,0,0"/>
+                        <fa:ImageAwesome Icon="HeartOutline" Foreground="Goldenrod" VerticalAlignment="Center" HorizontalAlignment="Left" 
+                        Width="30" Height="30" Margin="15,0,0,0"/>
+                    </StackPanel>
+                    <Border Background="Transparent" BorderBrush="LightGray" CornerRadius="5,5,5,5" Margin="0,-41.5,0,0" BorderThickness="2" Height="50" Width="500">
+
+                    </Border>
+                    <StackPanel Orientation="Horizontal" Width="500" Margin="0,20,0,0">
+                        <Label FontSize="14">Seller:</Label>
+                        <Label FontWeight="Bold" FontSize="14" Margin="-6,0,0,0">ROZETKA</Label>
+                        <Image x:Name="Small_Logo" Height="25" Width="25" Margin="280,0,0,0"></Image>
+                        <Label Foreground="Black" FontWeight="Bold" Margin="5,0,0,0" FontSize="14">ROZETKA</Label>
+                    </StackPanel>
+                    <Border Background="Transparent" BorderBrush="LightGray" CornerRadius="5,5,5,5" Margin="0,-28,0,0" BorderThickness="2" Height="30" Width="500">
+
+                    </Border>
+                    <Border Background="Transparent" BorderBrush="LightGray" CornerRadius="5,5,5,5" Margin="0,15,0,0" BorderThickness="2" Height="150" Width="500">
+                        <Line X1="0" X2="500" Y1="25" Y2="25" Stroke="LightGray" StrokeThickness="2"></Line>
+                    </Border>
+                    <Label Margin="0,-150,0,0" FontSize="14">Delivery to: Kyiv</Label>
+                    <StackPanel Orientation="Horizontal" Width="500" Margin="0,-115,0,0">
+                        <Label FontSize="14">Pickup from Rozetka delivery points</Label>
+                        <Label FontSize="14" FontWeight="Bold" Margin="4,0,0,0">Pick up tomorrow from 11:00</Label>
+                        <Label FontSize="14" Margin="15,0,0,0" Foreground="Lime">Free</Label>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Width="500" Margin="0,-80,0,0">
+                        <Label FontSize="14">Pickup from postal operators' offices</Label>
+                        <Label FontSize="14" FontWeight="Bold" Margin="0,0,0,0">We will ship tomorrow</Label>
+                        <Label FontSize="14" Margin="20,0,0,0" >63 ₴ - 75 ₴</Label>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Width="500" Margin="0,-45,0,0">
+                        <Label FontSize="14">Pickup from postal operators' offices</Label>
+                        <Label FontSize="14" FontWeight="Bold" Margin="0,0,0,0">Delivery tomorrow from 11:00</Label>
+                        <Label FontSize="14" Margin="8,0,0,0" Foreground="Lime">Free</Label>
+                    </StackPanel>
+                    <Border Background="Transparent" BorderBrush="LightGray" CornerRadius="5,5,5,5" Margin="0,20,0,0" BorderThickness="2" Height="120" Width="500">
+
+                    </Border>
+                    <StackPanel Orientation="Horizontal" Width="500" Margin="0,-120,0,0">
+                        <Label FontSize="14" FontWeight="Bold">Payment.</Label>
+                        <Label FontSize="14" Margin="0,0,0,0">Payment upon receipt of goods, Google Pay, Card online, Cashless</Label>
+                    </StackPanel>
+                    <Label FontSize="14" Margin="0,-103,0,0">for legal entities, Pay online with the "Baby Package" social card, Cashless for</Label>
+                    <Label FontSize="14" Margin="0,-85,0,0">individuals, PrivatPay, Apple Pay, Pay online with the "eSupport" card,</Label>
+                    <Label FontSize="14" Margin="0,-67,0,0">Mastercard, Visa</Label>
+                    <Line X1="0" X2="500" Stroke="LightGray" StrokeThickness="2" Y1="-35" Y2="-35"></Line>
+                    <StackPanel Orientation="Horizontal" Width="500" Margin="0,-35,0,0">
+                        <Label FontSize="14" FontWeight="Bold">Guarantee.</Label>
+                        <Label FontSize="14" Margin="0,0,0,0">12 months Exchange/return of goods within 14 days</Label>
+                    </StackPanel>
+                    <Button Content="Buy" Height="30" Width="70" Foreground="White" HorizontalAlignment="Left"  BorderThickness="0" Margin="0,5,0,0" Click="Button_Click">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Border CornerRadius="3,3,3,3" Background="#07da63">
+                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Back</TextBlock>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                </StackPanel>
+            </Canvas>
+        </Canvas>
+        <Canvas x:Name="House" Margin="294,360,40,414" Width="662" Height="350">
+            <Label FontSize="50" Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="130,140,0,0">Items out of stock</Label>
+        </Canvas>
+        <Canvas x:Name="Tools" Margin="294,360,40,414" Width="662" Height="350">
+            <Label FontSize="50" Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="130,140,0,0">Items out of stock</Label>
+        </Canvas>
+        <Canvas x:Name="Plumbing" Margin="294,360,40,414" Width="662" Height="350">
+            <Label FontSize="50" Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="130,140,0,0">Items out of stock</Label>
+        </Canvas>
+        <Canvas x:Name="Sport" Margin="294,360,40,414" Width="662" Height="350">
+            <Label FontSize="50" Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="130,140,0,0">Items out of stock</Label>
+        </Canvas>
+    </Grid>
+</Window>
